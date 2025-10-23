@@ -3,12 +3,14 @@ require("dotenv").config(); //dotenv configured
 const express = require("express");
 //database connected in databse connect
 const dbConnect = require("./database/connect");
+const cors = require("cors");
 
 userRouter = require("./routes/user");
 
 dbConnect();
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use("/api/v1", userRouter);
 const port = process.env.PORT;
 app.listen(port, () => {
