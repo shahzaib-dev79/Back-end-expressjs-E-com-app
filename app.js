@@ -5,13 +5,16 @@ const express = require("express");
 const dbConnect = require("./database/connect");
 const cors = require("cors");
 
-userRouter = require("./routes/user");
+const userRouter = require("./routes/user");
+const productRouter = require("./routes/product");
+const loginRouter = require("./routes/login");
 
 dbConnect();
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use("/api/v1", userRouter);
+app.use("/api/v1", productRouter);
 const port = process.env.PORT;
 app.listen(port, () => {
 	console.log("Listening on port ", port);
