@@ -4,7 +4,8 @@ const express = require("express");
 //database connected in databse connect
 const dbConnect = require("./database/connect");
 const cors = require("cors");
-
+const auth = require("./middleware/auth");
+const adminOnly = require("./middleware/admin");
 const userRouter = require("./routes/user");
 const productRouter = require("./routes/product");
 const loginRouter = require("./routes/login");
